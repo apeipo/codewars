@@ -9,7 +9,7 @@
 require_once "sum_strings.php";
 
 function doTest($a, $b, $expect) {
-    $r = sum_strings($a, $b);
+    $r = sum_strings_v2($a, $b);
     assert($r === $expect, "expect $r to equal $expect");
 }
 

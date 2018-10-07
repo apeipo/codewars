@@ -28,5 +28,16 @@ function sum_strings($a, $b)
 
 function sum_strings_v2($a, $b)
 {
-    return $a + $b;
+    $ar = str_split(strrev(ltrim($a, "0")));
+    $br = str_split(strrev(ltrim($b, "0")));
+    $len = max(count($ar), count($br));
+    $r = array_fill(0, $len, 0);
+    for($i = 0; $i < $len; $i++) {
+        $r[$i] += (isset($ar[$i]) ? $ar[$i] : 0) + (isset($br[$i]) ? $br[$i] : 0);
+        if($r[$i] > 9) {
+            $r[$i+1] = 1;
+            $r[$i] = $r[$i] - 10;
+        }
+    }
+    return strrev(ltrim(implode($r, ""), "0"));
 }

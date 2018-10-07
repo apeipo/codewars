@@ -2,3 +2,5 @@
 .test
 .prof
 vendor
+cmake-build-debug
+build
